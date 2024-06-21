@@ -44,3 +44,16 @@
     margin: 10px;
     text-align: justify; 
 }
+.card{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonB{
+    width: 150px;
+    height: 50px;
+    background-color: rgb(134, 216, 109);
+    border-radius: 20px;
+}
