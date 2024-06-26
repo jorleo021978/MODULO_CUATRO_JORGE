@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.containerBox{
+    width: 350px;
+    height: 500px;
+    border: 1px solid rgb(138, 131, 146);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(118, 143, 74);
+    border-radius: 30% 10% 30% 10% ;
+    box-shadow: 30px 10px 15px rgba(0, 0, 0, 0.5);
+}
+.containerBox:hover{
+    width: 400px;
+    height: 550px;
+}
