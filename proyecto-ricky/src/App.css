@@ -1,19 +1,65 @@
+body{
+    padding: 0;
+    border: 0;
+    font-family: cursive;
+}
+/*PAJINA APP*/
 .container{
     display: flex;
     justify-content: center;
 }
 .containerBox{
-    width: 350px;
-    height: 500px;
-    border: 1px solid rgb(138, 131, 146);
     display: flex;
+    flex-wrap: wrap;
+    gap: 20PX;
+}
+.inferior{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    justify-content: right;
     align-items: center;
-    flex-direction: column;
-    background-color: rgb(118, 143, 74);
-    border-radius: 30% 10% 30% 10% ;
-    box-shadow: 30px 10px 15px rgba(0, 0, 0, 0.5);
+    padding-right: 140px;
 }
-.containerBox:hover{
-    width: 400px;
-    height: 550px;
+.name{
+    color: rgb(236, 225, 225);
+    font-size: 30px;
 }
+.name:hover{
+    color: rgb(230, 193, 145);
+}
+.nameId{
+    color: aliceblue;
+    font-size: 18px;
+}
+.genero{
+    color: aquamarine;
+}
+@keyframes drip {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+
+  .drip-text {
+    font-size: 80px;
+    font-weight: bold;
+    background: linear-gradient(180deg, red, yellow, green, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: drip 2s infinite linear;
+    background-size: 100% 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerBusqueda{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+  }

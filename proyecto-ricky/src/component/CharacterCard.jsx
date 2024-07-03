@@ -1,19 +1,16 @@
-import React from "react";
-import Title from "./Title";
-import Image from "./Image";
-import Details from "./Details";
+import React from 'react';
+import '../styles/component.css'
 
-const CharacterCard = (props) =>{
-    return(
-        <>
-        <Title title={props.name} />
-        <Image url={props.image}/>
-        <Details 
-        genre={props.genre} 
-        status={props.status} 
-        />
-        </>
-    );
+function CharacterCard({ id, name, image, genre, status }) {
+  return (
+    <div className='card'>
+      <h2 className='name'>{name}</h2>
+      <img className='image' src={image} alt={name} />
+      <p className='nameId'>ID: {id}</p>
+      <p className='genero'>Género: {genre}</p>
+      <p className='genero'>Estado: {status}</p>
+    </div>
+  );
 }
 
 export default CharacterCard;
