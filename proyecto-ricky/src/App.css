@@ -1,65 +1,240 @@
-body{
+body {
     padding: 0;
-    border: 0;
-    font-family: cursive;
-}
-/*PAJINA APP*/
-.container{
-    display: flex;
-    justify-content: center;
-}
-.containerBox{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20PX;
-}
-.inferior{
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    justify-content: right;
-    align-items: center;
-    padding-right: 140px;
-}
-.name{
-    color: rgb(236, 225, 225);
-    font-size: 30px;
-}
-.name:hover{
-    color: rgb(230, 193, 145);
-}
-.nameId{
-    color: aliceblue;
-    font-size: 18px;
-}
-.genero{
-    color: aquamarine;
-}
-@keyframes drip {
+    margin: 0;
+  }
+  
+  .rick-and-morty-title {
+    font-family: 'Blippo', sans-serif;
+    font-size: 5rem;
+    color: #0f0;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    animation: drip 3s infinite;
+  }
+  .rick-and-morty-title::before,
+  .rick-and-morty-title::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgb(160, 9, 9);
+    border-radius: 50%;
+    animation: drop 0.8s infinite;
+  }
+  .rick-and-morty-title::before {
+    left: 20%;
+    top: -20px;
+    animation-delay: 0.5s;
+  }
+  
+  .rick-and-morty-title::after {
+    left: 80%;
+    top: -20px;
+    animation-delay: 1s;
+  }
+  
+  @keyframes drop {
     0% {
-      background-position: 0% 0%;
+      transform: translateY(0) scale(1);
+      opacity: 1;
     }
     100% {
-      background-position: 0% 100%;
+      transform: translateY(50px) scale(0.5);
+      opacity: 0;
     }
   }
-
-  .drip-text {
-    font-size: 80px;
-    font-weight: bold;
-    background: linear-gradient(180deg, red, yellow, green, blue, purple);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: drip 2s infinite linear;
-    background-size: 100% 200%;
+  
+  @keyframes drip {
+    0%, 100% {
+      text-shadow: 0 0 2px rgb(16, 71, 16), 0 0 5px #0f0, 0 0 10px #0f0;
+    }
+    50% {
+      text-shadow: 0 0 4px #0f0, 0 0 8px #0f0, 0 0 12px #0f0;
+    }
+  }
+  
+  .containerBoxPage {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(19, 20, 19);
+  }
+  
+  .boxUlPage {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .boxUlPage li {
+    list-style: none;
+  }
+  
+  .pageLink {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+  }
+  
+  .containerBox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .cardBox {
+    width: 250px;
+    min-height: 300px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid blue;
+    border-radius: 20px;
+  }
+  
+  .nameRick {
+    color: aliceblue;
+    font-size: 18px;
+  }
+  
+  .imageRicr {
+    width: 250px;
+    height: 220px;
+    border-radius: 10px 60px 10px 60px;
+  }
+  
+  .nameIdRicr {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(78, 159, 78);
+    color: white;
+    font-size: 15px;
   }
-  .containerBusqueda{
+  
+  .generoRick {
+    width: 150px;
+    height: 30px;
+    background-color: rgb(27, 164, 47);
+    color: white;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-
+    justify-content: center;
+    border-radius: 20px;
+    cursor: pointer;
   }
+  
+  .buttonBox {
+    width: 500px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .pageNumbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    gap: 3px;
+  }
+  
+  #number {
+    width: 40px;
+    height: 30px;
+    border-radius: 40px;
+    background-color: green;
+    color: wheat;
+    border: none;
+  }
+  
+  #number.active {
+    background-color: rgb(192, 237, 169);
+    color: black;
+    border: none;
+    font-weight: 800;
+    font-size: 17px;
+  }
+  
+  .pagerRick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0f0;
+    color: white;
+    font-size: 12px;
+  }
+  .filterImput{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: right;
+    background-color: aliceblue;
+  }
+  .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 
+    500px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0f0;
+    font-size: 12px;
+    
+  }
+  
+  .character-card {
+    flex: 0 1 200px;
+  }
+  
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .busquedaUno{
+    width: 550px;
+    display: flex;
+    justify-content: center;
+  }
+  .inputFilter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 25px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #0f0;
+    color: white;
+    font-size: 20px;
+ }
+  /*pie de pajina footer*/
+  .footer{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.logoWasap{
+  width: 80px;
+}

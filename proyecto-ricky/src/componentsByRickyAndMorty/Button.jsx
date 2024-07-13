@@ -30,8 +30,8 @@ const ButtonTitle = ({ onNext, onPrevious, onPageSelect, currentPage, totalPages
 
   return (
     <div className='buttonBox'>
-      <button onClick={onPrevious}>
-        Anterior
+      <button  className='pagerRick' onClick={onPrevious}>
+        <div>Anterior</div>
       </button>
       <div className='pageNumbers'>
         {getPageNumbers().map((number) => (
@@ -44,8 +44,8 @@ const ButtonTitle = ({ onNext, onPrevious, onPageSelect, currentPage, totalPages
           </button>
         ))}
       </div>
-      <button onClick={onNext}>
-        Siguiente
+      <button className='pagerRick' onClick={onNext}>
+        <div className='pagerRick'>Siguiente</div>
       </button>
     </div>
   );
