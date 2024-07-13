@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/component.css'
 
 function CharacterCard({ id, name, image, genre, status }) {
   return (

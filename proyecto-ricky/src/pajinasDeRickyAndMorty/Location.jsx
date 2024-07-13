@@ -1,10 +1,10 @@
 import React from "react";
-import LocationDetails from "../componentsByRickyAndMorty/LocationDetails ";
+import LocationRickyAnd from "../location/LocationRickyAnd";
 
 const Location = () => {
     return(
         <>
-            <LocationDetails/>
+         <LocationRickyAnd/>
         </>
     )
 }

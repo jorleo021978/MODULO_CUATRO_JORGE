@@ -1,0 +1,96 @@
+/* Estilo general para el contenedor principal */
+.location-container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #333;
+}
+
+/* Estilo para el encabezado */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo para el contenedor de las tarjetas de localización */
+.location-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Estilo individual para cada tarjeta de localización */
+.location-card {
+  background-color: #d8e4f0;
+  border: 1px solid #ecdddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto hover en las tarjetas de localización */
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para las imágenes de las tarjetas de localización */
+.location-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Estilo para los textos de las tarjetas de localización */
+.location-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.location-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Estilo para el contenedor de los botones de navegación */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Estilo individual para los botones de navegación */
+.navigation-buttons button {
+  background-color: #75d349;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Efecto hover en los botones de navegación */
+.navigation-buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para los botones deshabilitados */
+.navigation-buttons button:disabled {
+  cursor: not-allowed;
+}
+
+/* Estilo para los mensajes de carga y error */
+.message {
+  font-size: 1.2rem;
+  color: #e2d7d7;
+}

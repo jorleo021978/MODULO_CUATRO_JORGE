@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import '../styles/component.css';
 
 const ButtonTitle = ({ onNext, onPrevious, onPageSelect, currentPage, totalPages }) => {
   const getPageNumbers = () => {

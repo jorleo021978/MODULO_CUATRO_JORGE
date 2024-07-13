@@ -1,15 +1,11 @@
-import React, {useEffect, useState } from 'react';
-import {useSearchParams } from 'react-router-dom';
-import CharacterCard from '../EpisodesRicky/CharacterCard';
-import '../styles/episodioUno.css';
-import PaginationButtons from './PaginationButtons';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
-const EpisodesRickyAnd = () => {
-  const [episodes, setEpisodes] = useState([]);
+const LocationCharacterCard = () => {
+  const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-  const [hasNextPage, setHasNextPage] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,16 +16,29 @@ const EpisodesRickyAnd = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    const fetchEpisodes = async () => {
+    const fetchLocations = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://rickandmortyapi.com/api/episode?page=${page}`);
+        const response = await fetch(`https://rickandmortyapi.com/api/location?page=${page}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setEpisodes(data.results);
-        setHasNextPage(!!data.info.next);
+        const locationsWithResidents = await Promise.all(
+          data.results.map(async (location) => {
+            const residents = await Promise.all(
+              location.residents.slice(0, 20).map(async (residentUrl) => {
+                const residentResponse = await fetch(residentUrl);
+                if (!residentResponse.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return residentResponse.json();
+              })
+            );
+            return { ...location, residents };
+          })
+        );
+        setLocations(locationsWithResidents);
         setTotalPages(data.info.pages);
       } catch (error) {
         setError(error.message);
@@ -38,7 +47,7 @@ const EpisodesRickyAnd = () => {
       }
     };
 
-    fetchEpisodes();
+    fetchLocations();
   }, [page]);
 
   const nextPage = () => {
@@ -73,7 +82,7 @@ const EpisodesRickyAnd = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, [page, hasNextPage]);
+  }, [page, totalPages]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -85,32 +94,29 @@ const EpisodesRickyAnd = () => {
 
   return (
     <>
-      <div className='containerEpisode'>
-        <div className='containerEpisodeCharacterCard' onKeyDown={handleEnterKeyPress} tabIndex={0}>
-          {episodes.map((episode) => (
-            <CharacterCard
-              key={episode.id}
-              name={episode.name}
-              episode={episode.episode}
-              air_date={episode.air_date}
-            />
-          ))}
-        </div>
+      <div className='location-container'>
+        {locations.map((location) => (
+          <div key={location.id} className='location-item'>
+            <h2>{location.name}</h2>
+            <p>Type: {location.type}</p>
+            <p>Dimension: {location.dimension}</p>
+            <h3>Residents:</h3>
+            <ul>
+              {location.residents.map((resident) => (
+                <li key={resident.id}>
+                  {resident.name} - {resident.status} - {resident.species}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
-      <div className='paginationEpisode'>
+      <div className='pagination'>
         <button className='button' onClick={prevPage}>Previous</button>
-        <PaginationButtons
-          totalPages={totalPages}
-          currentPage={page}
-          onPageChange={(pageNumber) => {
-            setSearchParams({ page: pageNumber });
-            setPage(pageNumber);
-          }}
-        />
         <button className='button' onClick={nextPage}>Next</button>
       </div>
     </>
   );
 }
 
-export default EpisodesRickyAnd;
+export default LocationCharacterCard;

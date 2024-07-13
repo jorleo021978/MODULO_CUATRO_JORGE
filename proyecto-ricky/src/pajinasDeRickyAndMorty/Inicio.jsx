@@ -30,7 +30,7 @@ const Inicio = () => {
               setFilter('');
               setPage(1);
               setNoResults(false);
-            }, 5000);
+            }, 2000);
           }
         } catch (error) {
           console.error('Error fetching characters by name:', error);
@@ -40,7 +40,7 @@ const Inicio = () => {
             setFilter('');
             setPage(1);
             setNoResults(false);
-          }, 5000);
+          }, 2000);
         }
       } else {
         try {
@@ -56,7 +56,7 @@ const Inicio = () => {
               setFilter('');
               setPage(1);
               setNoResults(false);
-            }, 5000);
+            }, 1000);
           }
         } catch (error) {
           console.error('Error fetching character by ID:', error);
@@ -66,7 +66,7 @@ const Inicio = () => {
             setFilter('');
             setPage(1);
             setNoResults(false);
-          }, 5000);
+          }, 1000);
         }
       }
     } else {
